@@ -1,8 +1,8 @@
 @import "settings";
-@import "../bower_components/foundation/scss/foundation";
+//@import "../bower_components/foundation/scss/foundation";
 
 // Or selectively include components
-// @import
+@import
 //   "foundation/components/accordion",
 //   "foundation/components/alert-boxes",
 //   "foundation/components/block-grid",
@@ -12,9 +12,9 @@
 //   "foundation/components/clearing",
 //   "foundation/components/dropdown",
 //   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
+   "../bower_components/foundation/scss/foundation/components/flex-video",
+   "../bower_components/foundation/scss/foundation/components/forms",
+   "../bower_components/foundation/scss/foundation/components/grid",
 //   "foundation/components/inline-lists",
 //   "foundation/components/joyride",
 //   "foundation/components/keystrokes",
@@ -35,8 +35,10 @@
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
 //   "foundation/components/top-bar",
-//   "foundation/components/type",
+    "../bower_components/foundation/scss/foundation/components/type",
 //   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+   "../bower_components/foundation/scss/foundation/components/visibility",
 
-@import "main";
+    "main",
+    "menu",
+    "logo";

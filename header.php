@@ -7,44 +7,43 @@
 
     <?php wp_head(); ?>
 
+    <style type="text/css">
+      .home .content-wrap {
+        background: #ffffff url(<?php the_field('background_image');?>) no-repeat center center fixed;
+        background-size: cover;
+      }
+    </style>
+
   </head>
 
+
   <body <?php body_class(); ?>>
-    <header class="row no-max pad main">
-      <h1><a class='current' href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-      <a href="" class="nav-toggle"><span></span>Menu</a>
-      <nav>
-        <h1 class="open"><a class='current' href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-        
-        <?php
+      <div class="container">
 
-        $args = array(
-          'container' => false,
-          'theme_location' => 'primary-menu',
-          'menu_class' => 'no-bullet'  
-        );
+          <?php include 'partials/menu.php';?>
 
-        wp_nav_menu( $args );
+          <?php include 'partials/logo.php';?>
 
-        ?>
+          <div class="content-wrap">
+              <div class="content">
 
-        <!-- <ul class="no-bullet">
-          <li class="current parent"><a class='current' href="index.html">Portfolio</a>
-            <ul class="sub-menu">
-              <li><a href="item.html">Portfolio Item</a></li>
-              <li><a href="item.html">Portfolio Item</a></li>
-              <li><a href="item.html">Portfolio Item</a></li>
-              <li><a href="item.html">Portfolio Item</a></li>
-            </ul>
-          </li>
-          <li class="parent"><a href="blog.html">Blog</a>
-            <ul class="sub-menu">
-              <li><a href="single-post.html">Single Post</a></li>
-              <li><a href="author.html">Author Page</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul> -->
-      </nav>
-    </header>
+                  <header id="header">
+
+                      <nav>
+
+
+        <!--                  --><?php
+        //
+        //                  $args = array(
+        //                    'container' => false,
+        //                    'theme_location' => 'primary-menu',
+        //                    'menu_class' => 'no-bullet'
+        //                  );
+        //
+        //                  wp_nav_menu( $args );
+        //
+        //                  ?>
+
+                      </nav>
+                  </header>
+                  <div id="middle">

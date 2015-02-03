@@ -1,0 +1,111 @@
+
+.logo{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    margin: 1em;
+    width: 67px;
+    height: 80px;
+    opacity: 1;
+
+
+//    @media(max-width: $palm) {
+//        display: none;
+//    }
+
+    .letter{
+        position: absolute;
+        width: 70px;
+        height: 128px;
+        z-index: 100;
+    }
+}
+
+
+
+.logo_k{
+    background: url('../images/logo/black/K.png') no-repeat;
+    background-size: 30px;
+    background-position: 4px 0px;
+}
+.logo_o{
+    background: url('../images/logo/black/O.png') no-repeat;
+    background-size: 40px;
+    background-position: 27px 0px;
+    transition:all 1.7s ease;
+}
+
+.logo_g{
+    background: url('../images/logo/black/G.png') no-repeat;
+    background-size: 36px;
+    background-position: 0px 42px;
+}
+.logo_a{
+    background: url('../images/logo/black/A.png') no-repeat;
+    background-size: 34px;
+    background-position: 32px 41px;
+}
+
+
+
+
+
+@-webkit-keyframes spin{
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.spin{
+    animation: spin 1s ease 0s 1 normal;
+}
+
+.spin:hover {
+    transition: all 1s;
+    animation: spin;
+}
+
+
+// KOLLEKTIV GALLERY LOGO (on top of featured image)
+.logo-kollektiv-gallery{
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    padding-top: 150px;
+
+    display: none; // hide image when call for submissions picture is featured
+
+    img {
+        width:40%;
+        -webkit-filter: invert(1);
+        -moz-filter: invert(1);
+        -o-filter: invert(1);
+        -ms-filter: invert(1);
+        filter: invert(1);
+        -webkit-transition:all 2s ease;
+        -moz-transition:all 2s ease;
+        -o-transition:all 2s ease;
+        -ms-transition:all 2s ease;
+        transition:all 2s ease;
+
+        &:hover {
+            -webkit-filter: invert(0);
+            -moz-filter: invert(0);
+            -o-filter: invert(0);
+            -ms-filter: invert(0);
+            filter: invert(0);
+        }
+    }
+}

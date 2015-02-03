@@ -9,7 +9,7 @@ add_theme_support( 'html5' );
 function femur_excerpt_length( $length ) {
 	return 16;
 }
-add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, overide with my length function. And do it last!
+add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, override with my length function. And do it last!
 
 
 
@@ -45,10 +45,9 @@ femur_create_widget( 'Blog Sidebar', 'blog', 'Displays on the side of pages in t
 
 function femur_theme_styles() {
 
-	wp_enqueue_style('foundation_css', get_template_directory_uri() . '/assets/css/foundation.css');
 	//wp_enqueue_style('normalize_css', get_template_directory_uri() . '/css/normalize.css');
 	wp_enqueue_style('googlefont_css', 'http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic');
-	wp_enqueue_style('main_css', get_template_directory_uri() . '/style.css');
+	wp_enqueue_style('main_css', get_template_directory_uri() . '/assets/css/app.css');
 
 }
 //Wordpress, when it is time to enqueue scripts add the stylesheets
@@ -63,7 +62,7 @@ function femur_theme_js() {
 	wp_enqueue_script( 'vendor_js', get_template_directory_uri() . '/assets/js/vendor/vendor.min.js', 
 		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/assets/js/app.js', 
-		array('jquery', 'foundation_js'), '', true ); // Dependant on jquery and foundation
+		array('jquery'), '', true ); // Dependant on jquery and foundation
 
 }
 //Wordpress, when it is time to enqueue scripts add the javascript files

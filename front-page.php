@@ -2,20 +2,19 @@
 
 
 <section class="row">
-  <div class="small-12 columns text-center">
-    <div class="leader">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <div class="small-12 columns text-center">
+        <div class="leader">
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            
+                <h1><?php the_title(); ?></h1>
+                <p><?php the_field('main_strapline'); ?></p>
+                <p><?php the_field('background_image_artist'); ?></p>
 
-      <h1><?php the_title(); ?></h1>
-      <p><?php the_content(); ?></p>
-      <p>hello</p>       
-    
-    <?php endwhile; endif; ?>
+            <?php endwhile; endif; ?>
 
+        </div>
     </div>
-  </div>
 </section>
 
-<?php get_template_part('content', 'artists'); ?>
 
 <?php get_footer(); ?>

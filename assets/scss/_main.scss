@@ -1,4 +1,46 @@
-.hello {
-	display: flex;
-	flex-direction: row;
+$footer-height: 80px;
+
+$color-white: #fff;
+$color-black: #000;
+$color-yellow: #c4d309;
+
+$color-hover-light: $color-white;
+$color-hover-dark: $color-yellow;
+
+$color-menu-titles: $color-black;
+
+
+/*============================================
+      HTML BODY RESET
+ ============================================*/
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+/*============================================
+      WRAPPER, HEADER, CONTENT, FOOTER
+ ============================================*/
+.container {
+    min-height: 100%;
+    position: relative;
+
+    #header {
+        padding:10px;
+    }
+
+    #middle {
+        padding:10px;
+        padding-bottom:$footer-height;   /* Height of the footer element */
+    }
+
+    #footer {
+        width:100%;
+        height:$footer-height;
+        position:absolute;
+        bottom:0;
+        left:0;
+    }
 }

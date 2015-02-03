@@ -21,14 +21,14 @@ module.exports = function(grunt) {
             },
             sass: {
                 files: ['<%= dirs.scss %>/{,*/}*.{scss,sass}'],
-                tasks: ['sass:dev', 'autoprefixer'],
+                tasks: ['sass:dev', 'autoprefixer', 'concat'],
                 options: {
-                  livereload: true,
+                  livereload: true
                 }
             },
             scripts: {
                 files: [
-                    '<%= dirs.js %>/{,*/}*.js',
+                    'assets/js/{,*/}*.js',
                     '!<%= dirs.js %>/vendor/*.js'
                 ],
                 tasks: ['uglify:dist']
@@ -49,21 +49,18 @@ module.exports = function(grunt) {
                     '<%= dirs.typescript %>/**/*.ts',
                     '!<%= dirs.js %>/**/*.ts'
                 ],
-                tasks: ['typescript:build']
+                tasks: ['typescript:base']
             }
         },
 
 
         //Compile typescript files
         typescript: {
-            build: {
-                src: '<%= dirs.typescript =%>',
-                dest: '<%= dirs.js =%>',
+            base: {
+                src: ['assets/typescript/*.ts'],
+                dest: 'assets/js/app.js',
                 options: {
-                    basePath: '<%= dirs.typescript =%>',
-                    module: 'amd',
-                    target: 'es5',
-                    sourceMap: true
+                    module: 'amd'
                 }
             }
         },
@@ -91,17 +88,11 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     banner: '/*! <%= pkg.name %> <%= pkg.version %> styles.css <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
-                    style: 'expanded'
+                    style: 'minified'
                 },
-                files: [{
-                    expand: true,
-                    cwd: 'assets/scss',
-                    src: [
-                        '*.scss'
-                    ],
-                    dest: 'assets/css',
-                    ext: '.css'
-                }]
+                files: {                         // Dictionary of files
+                    'assets/css/app.css': 'assets/scss/app.scss'
+                }
             }
         },
 
@@ -113,22 +104,21 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: [{
-                    expand: true,
-                    cwd: 'assets/css/',
-                    src: '{,*/}*.css',
-                    dest: 'assets/css/'
+                    expand: false,
+                    src: 'assets/css/app.css',
+                    dest: 'style.css'
                 }]
             }
         },
 
-        // Minify css and save to main directory for wordpress
-        cssmin: {
-            target: {
-                files: [{
-                    'style.css': [ 'assets/css/*.css' ]
-                }]
-            }
-        },
+        //// Minify css and save to main directory for wordpress
+        //cssmin: {
+        //    target: {
+        //        files: [{
+        //            'style.css': [ 'assets/css/*.css' ]
+        //        }]
+        //    }
+        //},
 
 
         concat: {
@@ -184,11 +174,12 @@ module.exports = function(grunt) {
  
     grunt.registerTask('build', [
         // 'jshint',
+        'typescript',
         'uglify:vendor',
         'uglify:dist',
         'sass:dev',
         'autoprefixer',
-        'cssmin',
+        //'cssmin',
         'concat'
     ]);
 
