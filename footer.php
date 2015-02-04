@@ -1,6 +1,13 @@
 			</div><!-- / #middle -->
-			<footer id="footer" class="row">
-				<p>Copyright <?php echo date('Y'); ?></p>
+			<footer class="footer">
+
+				<? if (is_front_page()): ?>
+					<small><?php the_field('background_image_credit'); ?></small>
+				<? else: ?>
+					<small>Copyright <?php echo date('Y'); ?></small>
+				<? endif; ?>
+
+
 			</footer>
 			</div><!-- / .content -->
 		</div><!-- /.content-wrap -->

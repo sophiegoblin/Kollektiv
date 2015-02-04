@@ -68,4 +68,16 @@ function femur_theme_js() {
 //Wordpress, when it is time to enqueue scripts add the javascript files
 add_action( 'wp_enqueue_scripts', 'femur_theme_js' );
 
+
+
+//Stops admin bar from pushing html down 28px
+function my_filter_head() {
+	remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('get_header', 'my_filter_head');
+
+
+//THIS HIDES THE ADMIN BAR COMPLETELY
+add_filter('show_admin_bar', '__return_false');
+
 ?>

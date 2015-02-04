@@ -1,0 +1,49 @@
+.home {
+    $circle-size: 300px;
+    .subscribe-container {
+        width: $circle-size - 50px;
+        height: $circle-size - 50px;
+        top: -50px;
+        padding: 20% 10% 10%;
+
+        @media #{$medium-up} {
+            width: $circle-size;
+            height: $circle-size;
+            top: -100px;
+            padding: 80px;
+        }
+
+    }
+
+    .leader {
+        width: 100%;
+        top: 70%;
+        padding: 0 3%;
+        @media #{$large-up} {
+            padding: 10%;
+            top: 50%;
+        }
+    }
+
+    &.dark-background {
+        color: $color-light;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        small{
+            margin-top: 48px;
+            display: block;
+            margin-left: -10px;
+
+            @media #{$medium-up}{
+
+            }
+        }
+
+    }
+}
+

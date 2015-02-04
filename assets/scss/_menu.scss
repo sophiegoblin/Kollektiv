@@ -14,6 +14,12 @@ body,
     transform: translate3d(0,0,0);
     transition: transform 0.1s;
     transition-timing-function: ease-in;
+
+    .show-menu & {
+        transform: translate3d(150px,0,0);
+        transition: transform 0.3s;
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    }
 }
 
 
@@ -39,6 +45,10 @@ body,
         left: 0.5em;
         background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #373a47 60%, transparent 60%, transparent 80%, #373a47 80%);
         content: '';
+
+         .home.dark-background & {
+            background: linear-gradient(#FFFFFF 20%, transparent 20%, transparent 40%, #FFFFFF 40%, #FFFFFF 60%, transparent 60%, transparent 80%, #FFFFFF 80%);
+        }
     }
 
     &:hover {
@@ -93,12 +103,17 @@ body,
     z-index: 1001;
     width: 300px;
     height: 100%;
-    background: $color-yellow;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
     transform: translate3d(-300px,0,0);
     transition: transform 0.1s;
     transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+
+    .show-menu & {
+        transform: translate3d(0,0,0);
+        transition: transform 0.3s;
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    }
 
     a {
         color: $color-menu-titles;
@@ -114,56 +129,25 @@ body,
 }
 
 .icon-list {
+
+    .show-menu &,
+    .show-menu & a {
+        transform: translate3d(0,0,0);
+        transition: transform 0.4s;
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    }
+
     a {
         display: block;
         padding: 0.8em;
-        -webkit-transform: translate3d(0,500px,0);
+        font-weight: 700;
+
         transform: translate3d(-100px, 0,0);
-    }
-}
+        transition: transform 0s 0.6s;
+        transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 
-
-
-.icon-list a {
-    transition: transform 0s 0.6s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-
-    @for $i from 2 through 10 {
-        &:nth-child(#{$i}) {
-            transform: translate3d(-150px * $i, 0,0);
-            width: 2em * $i;
+        .show-menu & {
+            transition-duration: 0.5s;
         }
     }
-
-    span {
-        margin-left: 10px;
-        font-weight: 700;
-    }
-}
-
-
-
-/* SHOWN MENU STATE */
-.show-menu .menu-wrap {
-    transform: translate3d(0,0,0);
-    transition: transform 0.3s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-}
-
-.show-menu .content-wrap {
-    transform: translate3d(150px,0,0);
-    transition: transform 0.3s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-}
-
-.show-menu .icon-list,
-.show-menu .icon-list a {
-    transform: translate3d(0,0,0);
-    transition: transform 0.4s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-}
-
-.show-menu .icon-list a {
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
 }
