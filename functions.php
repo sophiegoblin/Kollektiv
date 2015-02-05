@@ -6,6 +6,14 @@ add_theme_support( 'html5' );
 
 
 
+if (function_exists('add_image_size')) {
+//	add_image_size('featured', 400, 250, true); //name of image, w, h, crop?
+	add_image_size('main-artist-image', 350, 350, true);
+//	add_image_size('post-thumb', 200, 200, true);
+//	add_image_size('small-square', 250, 250, true);
+}
+
+
 function femur_excerpt_length( $length ) {
 	return 16;
 }

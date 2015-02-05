@@ -1,4 +1,4 @@
-/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-04 3:38:54 PM */
+/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-05 6:49:44 PM */
 
 meta.foundation-version {
   font-family: "/5.5.0/"; }
@@ -2378,6 +2378,9 @@ th.hide-for-touch {
 
   th.show-for-print {
     display: table-cell !important; } }
+* {
+  -webkit-font-smoothing: antialiased; }
+
 /*============================================
       HTML BODY RESET
  ============================================*/
@@ -2396,9 +2399,7 @@ html, body {
 .container #header {
   padding: 10px; }
 .container #middle {
-  padding: 10px 0;
-  padding-bottom: 80px;
-  /* Height of the footer element */
+  padding: 40px 0 80px;
   overflow: auto; }
 .container .footer {
   width: 100%;
@@ -2408,9 +2409,13 @@ html, body {
   clear: both;
   padding: 1em; }
 
-/*============================================
-                CONTAINERS
- ============================================*/
+.content, #middle {
+  width: 100%;
+  height: 100%; }
+
+.row {
+  height: auto; }
+
 /*============================================
                 HELPER CLASSES
  ============================================*/
@@ -2428,14 +2433,66 @@ html, body {
 .circle {
   border-radius: 50%; }
 
-.background-fill-color {
+/*============================================
+                COLOUR SETTINGS
+ ============================================*/
+.background-color {
   background: #ebdd32; }
 
-.background-fill-light {
+.background-light {
   background: #fff; }
 
-.background-fill-dark {
+.background-dark {
   background: #000; }
+
+.text-color {
+  color: #ebdd32; }
+
+.text-light {
+  color: #fff; }
+
+.text-dark {
+  color: #000; }
+
+/*============================================
+                CONTAINERS
+ ============================================*/
+.picture-interview {
+  height: 100%;
+  width: 100%; }
+.picture-interview .image-wrapper {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 100px; }
+.picture-interview .image-wrapper .image {
+  height: 100%;
+  width: 100%;
+  border: solid red; }
+.picture-interview .image-wrapper .image img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  border: solid; }
+.picture-interview .image-wrapper .label {
+  max-width: 800px;
+  margin: auto; }
+
+.image:hover .label, .image:active .label {
+  background: #ebdd32;
+  color: #000; }
+.image img {
+  filter: grayscale(1); }
+
+.image-full-width img {
+  width: 100%;
+  height: auto; }
+
+.label {
+  padding: 0.3em;
+  margin-bottom: 0.9375rem; }
+@media only screen and (min-width: 40.063em) {
+  .label {
+    margin-bottom: 1.875rem; } }
 
 html, body, .container, .content-wrap {
   overflow: hidden;
@@ -2536,10 +2593,15 @@ html, body, .container, .content-wrap {
   transform: translate3d(0, 0, 0);
   transition: transform 0.4s;
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
+.icon-list li {
+  border-top: 1px solid rgba(165, 164, 157, 0.5); }
+.icon-list li:last-of-type {
+  border-bottom: 1px solid rgba(165, 164, 157, 0.5); }
 .icon-list a {
   display: block;
   padding: 0.8em;
   font-weight: 700;
+  border-top: rgba(165, 164, 157, 0.5);
   transform: translate3d(-100px, 0, 0);
   transition: transform 0s 0.6s;
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }

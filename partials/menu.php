@@ -1,4 +1,4 @@
-<div class="menu-wrap background-fill-color">
+<div class="menu-wrap background-color">
     <nav class="menu">
         <div class="icon-list">
 

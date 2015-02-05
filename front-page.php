@@ -3,7 +3,7 @@
 
 <section class="row">
 
-    <div class="center circle background-fill-light text-center subscribe-container">
+    <div class="center circle background-light text-center subscribe-container">
 
         <h4>SUBSCRIBE</h4>
         <form action="http://kollektivgallery.us7.list-manage.com/subscribe/post?u=20e49663c93adc0174c86ea9e&amp;id=746455a945" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank" novalidate>
