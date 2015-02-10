@@ -1,29 +1,34 @@
-<?php get_header(); ?>
+<? get_header(); ?>
+
+  <section class="row page">
+    <div class="small-12 columns">
+
+      <h1><?php wp_title( '' ); ?></h1>
 
 
+      <? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<section class="row">
-  <div class="small-12 columns text-center">
-    <div class="leader">
-      <h1><?php wp_title( '' ); ?></h1>       
 
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <article <? post_class('post'); ?>>
+          <h2><a href="<? the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-        <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-        <?php the_excerpt(); ?>        
-    
-      <?php endwhile; else; ?>
+          <? include 'partials/post-meta.php';?>
+
+          <p><? the_field('excerpt'); ?></p>
+
+          <? include 'partials/post-thumbnail.php';?>
+
+        </article>
+
+      <? endwhile; else : ?>
 
         <p>No results :(</p>
 
-        <p><?php get_search_form(); ?></p>
-
       <?php endif; ?>
-      
+
     </div>
-  </div>
-</section>
+
+  </section>
 
 
-
-<?php get_footer(); ?>
+<? get_footer(); ?>

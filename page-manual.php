@@ -1,6 +1,6 @@
 <?php
 /*
-	Template Name: Artist Interviews
+	Template Name: Manual
 */
 ?>
 <?php get_header(); ?>
@@ -15,6 +15,6 @@
 
 </section>
 
-<?php get_template_part('content', 'artists'); ?>
+<?php get_template_part('content', 'manual'); ?>
 
 <?php get_footer(); ?>

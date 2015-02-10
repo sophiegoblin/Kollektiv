@@ -26,5 +26,3 @@
             <?php include 'partials/logo.php';?>
 
             <div class="content-wrap">
-                <div class="content">
-                    <div id="middle">

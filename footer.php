@@ -1,4 +1,4 @@
-			</div><!-- / #middle -->
+
 <!--			<footer class="footer">-->
 <!---->
 <!--				--><?// if (is_front_page()): ?>
@@ -9,7 +9,7 @@
 <!---->
 <!---->
 <!--			</footer>-->
-			</div><!-- / .content -->
+
 		</div><!-- /.content-wrap -->
 	</div><!-- /.container -->
 	

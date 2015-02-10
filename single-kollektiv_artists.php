@@ -2,19 +2,19 @@
 
 <section class="picture-interview">
 
-	<?php
+	<?
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 		$new_style = get_field('image_10')? true : false;
 	?>
 
 	<div>
-		<h1><?php the_title(); ?></h1>
+		<h1><? the_title(); ?></h1>
 <!--			<p>--><?php //the_content(); ?><!--</p>-->
 	</div>
 	<? if($new_style): ?>
 
-		<? for ($i = 1; $i < 10; $i++) {
+		<? for ($i = 1; $i <= 10; $i++) {
 			// vars
 			$image = get_field('image_'.$i);
 			$question = get_field('question_'.$i);
@@ -29,22 +29,22 @@
 			$height = $image['sizes'][ $size . '-height' ];
 		?>
 
-			<div class="text-center image-wrapper">
+			<div id="image-<?= $i; ?>" class="text-center image-wrapper">
 				<div class="image">
-					<!--		<a href="--><?php //echo $url; ?><!--" title="--><?php //echo $title; ?><!--">-->
-					<img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" >
+					<!--		<a href="--><? //echo $url; ?><!--" title="--><? //echo $title; ?><!--">-->
+					<img src="<?= $url; ?>" alt="<?= $alt; ?>" >
 					<!--		</a>-->
 				</div>
 				<div class="background-dark text-light label">
-					<span><?php echo $question; ?></span>
-	<!--				<span>--><?php //echo $caption; ?><!--</span>-->
+					<span><?= $question; ?></span>
+	<!--				<span>--><? //echo $caption; ?><!--</span>-->
 				</div>
 			</div>
 		<? } ?>
 	<? else: // Revert to the old style picture interview format ?>
 		<div class="row">
 			<div class="small-6 small-centered columns text-center image-full-width">
-				<?php the_content(); ?>
+				<? the_content(); ?>
 			</div>
 		</div>
 	<? endif; ?>

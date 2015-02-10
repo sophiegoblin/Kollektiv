@@ -1,13 +1,13 @@
 <!-- Secondary Column -->
-<div class="small-12 medium-4 medium-pull-8 columns">
-	<div class="secondary">
 
-		<?php if( !dynamic_sidebar( 'blog' ) ): ?>
+<a id="entries-sidebar-button" class="entries-sidebar-button background-color text-dark" href="#">ENTRIES</a>
+<div id="entries-sidebar" class="entries-sidebar background-color">
 
-			<h2 class="module-heading">Sidebar Setup</h2>
-			<p>Please add widgets via the admin area!</p>
+	<?php if( !dynamic_sidebar( 'blog' ) ): ?>
 
-		<?php endif; ?>
+		<h2 class="module-heading">Sidebar Setup</h2>
+		<p>Please add widgets via the admin area!</p>
 
-	</div>
+	<?php endif; ?>
+
 </div>

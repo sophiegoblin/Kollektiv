@@ -2,8 +2,8 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 1000;
-    margin: 1em;
+    z-index: $z-index-logo;
+    margin: 0.4rem 0.4rem;
     width: 67px;
     height: 80px;
     opacity: 1;
@@ -12,7 +12,6 @@
         position: absolute;
         width: 70px;
         height: 128px;
-        z-index: 100;
     }
 }
 

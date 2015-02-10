@@ -1,0 +1,100 @@
+/**
+ * Featherlight – ultra slim jQuery lightbox
+ * Version 1.0.3 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2014, Noël Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+@media all {
+    .featherlight {
+        display: none;
+        position:fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: $z-index-overlay;
+        text-align: center;
+        white-space: nowrap;
+        cursor: pointer;
+        background: #333;
+    }
+
+    .featherlight:last-of-type {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .featherlight:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+//        margin-right: -0.25em;
+    }
+
+    .featherlight .featherlight-content {
+        position: relative;
+
+        text-align: left;
+        vertical-align: middle;
+        display: inline-block;
+
+        padding: 25px 25px 0;
+        border-bottom: 25px solid transparent;
+
+        width:100%;
+        max-width: $row-width-page;
+
+        margin-left: 5%;
+        margin-right: 5%;
+        max-height: 95%;
+
+        background: #fff;
+        cursor: auto;
+
+        white-space: normal;
+    }
+
+    .featherlight .featherlight-inner {
+        display: block;
+    }
+
+    .featherlight .featherlight-close-icon {
+
+        position: absolute;
+        z-index: 9999;
+        top: -1.3em;
+        right: -1.3em;
+        line-height: 50px;
+        width: 50px;
+
+        cursor: pointer;
+        text-align: center;
+        color: #FFF;
+        font-size: 2em;
+    }
+
+
+    .featherlight .featherlight-image {
+        /* styling */
+        width: 100%;
+    }
+
+
+    .featherlight-iframe .featherlight-content {
+        border-bottom: 0;
+        padding: 0;
+    }
+
+    .featherlight iframe {
+        border: none;
+    }
+
+    .flex-video {
+        margin-bottom: 0;
+    }
+}
+
+/* handling phones and small screens */
+@media only screen and (max-width: 1024px) {
+    .featherlight .featherlight-content {
+        max-height: 98%;
+    }
+}

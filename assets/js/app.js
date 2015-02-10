@@ -1,35 +1,68 @@
 
-//jQuery(document).ready(function($) {
-//
-//    var isOpen = false;
-//
-//    //MENU STUFF
-//    $("#open-button").click(function() {
-//        ToggleMenu();
-//    });
-//
-//    $("#wrapper").click(function(event) {
-//        var target = event.target;
-//        if( isOpen && target !== $("#open-button")) {
-//            ToggleMenu();
-//        }
-//    });
-//
-//    ToggleMenu = function () {
-//        if( isOpen ) {
-//
-//            document.body.classList.add('show-menu');
-//        }
-//        else {
-//
-//            document.body.classList.remove('show-menu');
-//        }
-//        isOpen = !isOpen;
-//    };
-//
-//
-//    $(document).foundation();
-//});
+jQuery(document).ready(function($) {
+    //$(document).foundation();
+
+
+        //$(".video-link").jqueryVideoLightning({
+        //    autoplay: 1,
+        //    backdrop_color: "#000",
+        //    backdrop_opacity: 0.9,
+        //    glow: 0,
+        //    glow_color: "#000"
+        //});
+
+
+    // MAIN MENU
+    $('#main-menu-button').click(function() {
+       toggleMenu();
+    });
+
+    var toggleMenu = function() {
+        $("#main-menu-wrap").toggleClass('open');
+        $('#main-menu-button').toggleClass('is-open');
+        $('#main-menu-button').toggleClass('is-closed');
+        $("#search-container").toggleClass('menu-slide-open');
+    };
+
+    // ENTRIES MENU
+    $('#entries-sidebar-button').click(function() {
+        $("#entries-sidebar, #entries-sidebar-button").toggleClass('open');
+    });
+
+
+    // SEARCH FIELD
+    $('#search-container').click(function(e){
+
+        if ($(this).hasClass('open')){
+            console.log('open');
+            if(!$('#search-field').is(e.target)){
+                $(this).toggleClass('open');
+                toggleMenu();
+            }
+        } else {
+            console.log('closed');
+
+            $(this).toggleClass('open');
+        }
+
+
+
+        //
+        //if ($(this).hasClass('is-open')){
+        //
+        //} else {
+        //    var $overlay = $('<div id="overlay" class="overlay-light"></div>');
+        //    $('body').append($overlay);
+        //    $("#search-field").prependTo($overlay);
+        //}
+        //
+        //$(this).toggleClass('is-open');
+    });
+
+
+
+
+});
 
 
 
@@ -133,43 +166,43 @@
 // * Copyright 2014, Codrops
 // * http://www.codrops.com
 // */
-(function() {
-
-    var bodyEl = document.body,
-        content = document.querySelector( '.content-wrap' ),
-        openbtn = document.getElementById( 'open-button' ),
-        closebtn = document.getElementById( 'close-button' ),
-        isOpen = false;
-
-    function init() {
-        initEvents();
-    }
-
-    function initEvents() {
-        openbtn.addEventListener( 'click', toggleMenu );
-        if( closebtn ) {
-            closebtn.addEventListener( 'click', toggleMenu );
-        }
-
-        // close the menu element if the target it´s not the menu element or one of its descendants..
-        content.addEventListener( 'click', function(ev) {
-            var target = ev.target;
-            if( isOpen && target !== openbtn ) {
-                toggleMenu();
-            }
-        } );
-    }
-
-    function toggleMenu() {
-        if( isOpen ) {
-            document.body.classList.remove('show-menu');
-        }
-        else {
-            document.body.classList.add('show-menu');
-        }
-        isOpen = !isOpen;
-    }
-
-    init();
-
-})();
+//(function() {
+//
+//    var bodyEl = document.body,
+//        content = document.querySelector( '.content-wrap' ),
+//        openbtn = document.getElementById( 'open-button' ),
+//        closebtn = document.getElementById( 'close-button' ),
+//        isOpen = false;
+//
+//    function init() {
+//        initEvents();
+//    }
+//
+//    function initEvents() {
+//        openbtn.addEventListener( 'click', toggleMenu );
+//        if( closebtn ) {
+//            closebtn.addEventListener( 'click', toggleMenu );
+//        }
+//
+//        // close the menu element if the target it´s not the menu element or one of its descendants..
+//        content.addEventListener( 'click', function(ev) {
+//            var target = ev.target;
+//            if( isOpen && target !== openbtn ) {
+//                toggleMenu();
+//            }
+//        } );
+//    }
+//
+//    function toggleMenu() {
+//        if( isOpen ) {
+//            document.body.classList.remove('show-menu');
+//        }
+//        else {
+//            document.body.classList.add('show-menu');
+//        }
+//        isOpen = !isOpen;
+//    }
+//
+//    init();
+//
+//})();

@@ -14,11 +14,11 @@ if (function_exists('add_image_size')) {
 }
 
 
-function femur_excerpt_length( $length ) {
-	return 16;
-}
-add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, override with my length function. And do it last!
-
+//function femur_excerpt_length( $length ) {
+//	return 16;
+//}
+//add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, override with my length function. And do it last!
+//
 
 
 function register_theme_menus() {
@@ -67,8 +67,14 @@ function femur_theme_js() {
 
 	wp_enqueue_script( 'modernizer_js', get_template_directory_uri() . '/assets/bower_components/modernizr/modernizr.js',
 		'', '', false ); // False = Place in header
-	wp_enqueue_script( 'vendor_js', get_template_directory_uri() . '/assets/js/vendor/vendor.min.js', 
+	wp_enqueue_script( 'fastclick_js', get_template_directory_uri() . '/assets/bower_components/fastclick/lib/fastclick.js', '', '', true ); // True = Place in footer
+
+	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/assets/js/vendor/foundation.min.js',
 		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
+
+	wp_enqueue_script( 'video_js', get_template_directory_uri() . '/assets/js/vendor/featherlight.js',
+		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
+
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/assets/js/app.js', 
 		array('jquery'), '', true ); // Dependant on jquery and foundation
 
