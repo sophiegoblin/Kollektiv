@@ -1,28 +1,18 @@
 
 jQuery(document).ready(function($) {
-    //$(document).foundation();
-
-
-        //$(".video-link").jqueryVideoLightning({
-        //    autoplay: 1,
-        //    backdrop_color: "#000",
-        //    backdrop_opacity: 0.9,
-        //    glow: 0,
-        //    glow_color: "#000"
-        //});
-
 
     // MAIN MENU
-    $('#main-menu-button').click(function() {
-       toggleMenu();
-    });
-
     var toggleMenu = function() {
         $("#main-menu-wrap").toggleClass('open');
         $('#main-menu-button').toggleClass('is-open');
         $('#main-menu-button').toggleClass('is-closed');
         $("#search-container").toggleClass('menu-slide-open');
+        console.log('togglemenu');
     };
+
+    $('#main-menu-button').click(function() {
+       toggleMenu();
+    });
 
     // ENTRIES MENU
     $('#entries-sidebar-button').click(function() {
@@ -32,35 +22,24 @@ jQuery(document).ready(function($) {
 
     // SEARCH FIELD
     $('#search-container').click(function(e){
-
         if ($(this).hasClass('open')){
-            console.log('open');
             if(!$('#search-field').is(e.target)){
                 $(this).toggleClass('open');
                 toggleMenu();
             }
         } else {
-            console.log('closed');
-
             $(this).toggleClass('open');
         }
-
-
-
-        //
-        //if ($(this).hasClass('is-open')){
-        //
-        //} else {
-        //    var $overlay = $('<div id="overlay" class="overlay-light"></div>');
-        //    $('body').append($overlay);
-        //    $("#search-field").prependTo($overlay);
-        //}
-        //
-        //$(this).toggleClass('is-open');
     });
 
 
+    //$.waypoints('refresh');
 
+
+    // MANUAL WAYPOINTS
+    $('.manual-item').waypoint(function() {
+        console.log('Top of manual element hit top of viewport.');
+    });
 
 });
 

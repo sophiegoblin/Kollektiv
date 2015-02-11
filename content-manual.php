@@ -15,13 +15,18 @@
 
     <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
 
-        <article class="background-color manual-item">
-            <h1><? the_field('letter'); ?></h1>
-            <h3><? the_field('title'); ?></h3>
-            <? the_content(); ?>
-        </article>
+        <? $letter = strtolower(get_field('letter')); ?>
 
-        <img src="<?= get_bloginfo('template_directory');?>/assets/images/manual-blocks/<? the_field('letter');?>.png" />
+        <a name="<?=$letter;?>"></a>
+        <section id="manual-id-<?=$letter;?>" class="background-color manual-item">
+            <?if (strlen($letter) < 2):?>
+                <h1 class="uppercase"><?=$letter;?></h1>
+            <?endif;?>
+            <h3 class="uppercase"><? the_field('title'); ?></h3>
+            <? the_content(); ?>
+        </section>
+
+<!--        <img id="manual-image---><?//=$letter;?><!--" class="manual-image manual-image---><?//=$letter;?><!--" src="--><?//= get_bloginfo('template_directory');?><!--/assets/images/manual-blocks/--><?//=$letter;?><!--.png" />-->
 
     <?php endwhile; endif; wp_reset_postdata(); ?>
 

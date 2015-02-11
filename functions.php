@@ -69,13 +69,16 @@ function femur_theme_js() {
 		'', '', false ); // False = Place in header
 	wp_enqueue_script( 'fastclick_js', get_template_directory_uri() . '/assets/bower_components/fastclick/lib/fastclick.js', '', '', true ); // True = Place in footer
 
-	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/assets/js/vendor/foundation.min.js',
+//	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/assets/js/vendor/foundation.min.js',
+//		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
+
+	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/assets/js/vendor/jquery.waypoints.min.js',
 		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
 
-	wp_enqueue_script( 'video_js', get_template_directory_uri() . '/assets/js/vendor/featherlight.js',
-		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
+	wp_enqueue_script( 'inview', get_template_directory_uri() . '/assets/js/vendor/inview.min.js',
+		array('jquery', 'waypoints'), '', true ); // Dependant on jquery. True = Place in footer
 
-	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/assets/js/app.js', 
+	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/assets/js/app.js',
 		array('jquery'), '', true ); // Dependant on jquery and foundation
 
 }

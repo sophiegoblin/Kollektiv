@@ -1,6 +1,7 @@
 $menu-width: 250px;
 $menu-slide-time: 0.4s;
 $color-menu-background: $color-yellow;
+$color-nav-manual-background: $color-white;
 $color-icon: $color-dark;
 $icon-animation-speed: 0.3s;	// animation speed
 $icon-scale: 0.8;			  // icon scale 68/68 default
@@ -82,10 +83,14 @@ body,
         }
     }
 
+    h5 {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
     a {
         display: block;
         padding: 0.8em;
-        font-weight: 700;
         border-top: rgba(165, 164, 157, 0.5);
 
         transform: translate3d(-100px, 0,0);
@@ -126,6 +131,11 @@ body,
     position: absolute;
     right: -50px;
     font-size: 1.2em;
+    opacity: 1;
+    transition: opacity $menu-slide-time;
+    .is-open & {
+        opacity: 0;
+    }
 }
 
 .burger-icon {
@@ -274,5 +284,52 @@ body,
     100% {
         width: 0;
         left: 36px;
+    }
+}
+
+
+
+// MANUAL MENU
+.nav-manual {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: $menu-width;
+    background: $color-nav-manual-background;
+    padding: 3em 1em;
+    z-index: $z-index-menu;
+
+    ul {
+        overflow: scroll;
+        height: 100%;
+        font-size: 0.8em;
+        margin-bottom: 0;
+
+        li {
+            padding: 0.5em 0;
+
+            .letter {
+                width: 30px;
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .title {
+
+            }
+        }
+    }
+    [class^=arrow]{
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .arrow-up {
+        top: 1em;
+    }
+    .arrow-down {
+        bottom: 1em;
     }
 }

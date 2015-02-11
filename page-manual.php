@@ -16,5 +16,6 @@
 </section>
 
 <?php get_template_part('content', 'manual'); ?>
+<?php get_template_part('content', 'manual-navigation'); ?>
 
 <?php get_footer(); ?>

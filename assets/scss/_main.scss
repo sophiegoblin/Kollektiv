@@ -1,5 +1,20 @@
+$color-white: #fff;
+$color-black: #000;
+$color-yellow: #ebdd32;
+$color-grey: #cacaca;
+$color-light: $color-white;
+$color-dark: $color-black;
+$color-theme: $color-yellow;
+$color-hover-light: $color-white;
+$color-hover-dark: $color-yellow;
+$color-menu-titles: $color-black;
+$color-box-background: $color-yellow;
+
 $leader-height: 92px;
 $footer-height: 80px;
+
+//FONTS
+$header-font-family: Futura;
 
 // Z INDEX
 $z-index-overlay: 100;
@@ -87,9 +102,10 @@ article {
     margin: 0 0 40px;
 }
 
-.manual-item {
-    padding: 2em;
+.page-template-page-manual {
+    background: $color-grey;
 }
+
 /*============================================
                 HELPER CLASSES
  ============================================*/
@@ -108,25 +124,16 @@ article {
 .circle {
     border-radius: 50%;
 }
-
+.uppercase {
+    text-transform: uppercase;
+}
+.font-header {
+    font-family: $header-font-family;
+}
 
 /*============================================
-                COLOUR SETTINGS
+                COLOUR STUFF
  ============================================*/
-$color-white: #fff;
-$color-black: #000;
-$color-yellow: #ebdd32;
-
-$color-light: $color-white;
-$color-dark: $color-black;
-$color-theme: $color-yellow;
-
-$color-hover-light: $color-white;
-$color-hover-dark: $color-yellow;
-
-$color-menu-titles: $color-black;
-$color-box-background: $color-yellow;
-
 
 .background-color  {
     background: $color-theme;

@@ -8,9 +8,17 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: responsive-layout, white, 
 */
-/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-10 4:22:54 PM */
+/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-11 12:24:05 PM */
 
 @charset "UTF-8";
+@font-face {
+  font-family: 'Futura Std Medium';
+  src: url("../fonts/FuturaStd-Medium.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/FuturaStd-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaStd-Medium.woff") format("woff"), url("../fonts/FuturaStd-Medium.ttf") format("truetype"), url("../fonts/FuturaStd-Medium.svg#978bfeb47c41e9c6da434cb6375bf283") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: 400; }
 meta.foundation-version {
   font-family: "/5.5.0/"; }
 
@@ -67,7 +75,7 @@ body {
   color: #222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: Arial, "Futura", Futura, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -143,7 +151,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: Arial, "Futura", Futura, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -545,7 +553,7 @@ select {
   border-color: #cccccc;
   padding: 0.5rem;
   font-size: 0.875rem;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: Arial, "Futura", Futura, sans-serif;
   color: rgba(0, 0, 0, 0.75);
   line-height: normal;
   border-radius: 0;
@@ -1810,7 +1818,7 @@ p aside {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Futura Std Medium", "Futura", Futura, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -2442,8 +2450,8 @@ html, body {
 article {
   margin: 0 0 40px; }
 
-.manual-item {
-  padding: 2em; }
+.page-template-page-manual {
+  background: #cacaca; }
 
 /*============================================
                 HELPER CLASSES
@@ -2462,8 +2470,14 @@ article {
 .circle {
   border-radius: 50%; }
 
+.uppercase {
+  text-transform: uppercase; }
+
+.font-header {
+  font-family: Futura; }
+
 /*============================================
-                COLOUR SETTINGS
+                COLOUR STUFF
  ============================================*/
 .background-color {
   background: #ebdd32; }
@@ -2568,10 +2582,12 @@ html, body, .container, .content-wrap {
   border-top: 1px solid rgba(165, 164, 157, 0.5); }
 .icon-list li:last-of-type {
   border-bottom: 1px solid rgba(165, 164, 157, 0.5); }
+.icon-list h5 {
+  margin-bottom: 0;
+  cursor: pointer; }
 .icon-list a {
   display: block;
   padding: 0.8em;
-  font-weight: 700;
   border-top: rgba(165, 164, 157, 0.5);
   -webkit-transform: translate3d(-100px, 0, 0);
           transform: translate3d(-100px, 0, 0);
@@ -2610,7 +2626,11 @@ html, body, .container, .content-wrap {
 .menu-text {
   position: absolute;
   right: -50px;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  opacity: 1;
+  transition: opacity 0.4s; }
+.is-open .menu-text {
+  opacity: 0; }
 
 .burger-icon {
   position: absolute;
@@ -2720,6 +2740,36 @@ html, body, .container, .content-wrap {
   100% {
     width: 0;
     left: 36px; } }
+.nav-manual {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background: #fff;
+  padding: 3em 1em;
+  z-index: 30; }
+.nav-manual ul {
+  overflow: scroll;
+  height: 100%;
+  font-size: 0.8em;
+  margin-bottom: 0; }
+.nav-manual ul li {
+  padding: 0.5em 0; }
+.nav-manual ul li .letter {
+  width: 30px;
+  display: inline-block;
+  margin-left: 20px; }
+.nav-manual [class^=arrow] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center; }
+.nav-manual .arrow-up {
+  top: 1em; }
+.nav-manual .arrow-down {
+  bottom: 1em; }
+
 .logo {
   position: fixed;
   right: 0;
@@ -2841,6 +2891,17 @@ html, body, .container, .content-wrap {
   color: #000;
   border: none;
   border-bottom: 4px solid black; }
+
+.manual-item {
+  padding: 2em;
+  margin: 0 0 6em; }
+
+.manual-image {
+  position: fixed;
+  left: 5%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
 
 /**
  * Featherlight – ultra slim jQuery lightbox

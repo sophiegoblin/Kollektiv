@@ -2,14 +2,16 @@
 
 <div id="main-menu-wrap" class="main-menu-wrap">
     <nav class="main-menu">
-        <div class="icon-list">
+        <div class="icon-list uppercase">
 
               <?php
 
               $args = array(
-                'container' => false,
-                'theme_location' => 'primary-menu',
-                'menu_class' => 'no-bullet'
+                    'container' => false,
+                    'theme_location' => 'primary-menu',
+                    'menu_class' => 'no-bullet',
+                    'before'     => '<h5>',
+                    'after'      => '</h5>'
               );
 
               wp_nav_menu( $args );
