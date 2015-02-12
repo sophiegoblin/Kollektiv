@@ -75,8 +75,8 @@ function femur_theme_js() {
 	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/assets/js/vendor/jquery.waypoints.min.js',
 		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
 
-	wp_enqueue_script( 'inview', get_template_directory_uri() . '/assets/js/vendor/inview.min.js',
-		array('jquery', 'waypoints'), '', true ); // Dependant on jquery. True = Place in footer
+	wp_enqueue_script( 'scroll', get_template_directory_uri() . '/assets/js/vendor/jquery.scrollTo.min.js',
+		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
 
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/assets/js/app.js',
 		array('jquery'), '', true ); // Dependant on jquery and foundation

@@ -1,7 +1,7 @@
 $search-slide-time: 0.4s;
 
 .search-container{
-    position: absolute;
+    position: fixed;
     top: 1em;
     left: 1em;
     width: $menu-width - 34px;

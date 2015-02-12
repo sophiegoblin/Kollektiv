@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
 
     // MAIN MENU
@@ -33,12 +32,43 @@ jQuery(document).ready(function($) {
     });
 
 
-    //$.waypoints('refresh');
-
-
     // MANUAL WAYPOINTS
-    $('.manual-item').waypoint(function() {
-        console.log('Top of manual element hit top of viewport.');
+    $('.manual-item').waypoint({
+        handler: function(direction) {
+            var $current = $(this);
+            $('.manual-image').removeClass('selected');
+            $('.nav-manual a').removeClass('selected');
+            $('.'+$current.attr('id')).addClass('selected');
+            //$('.manual-image-'+$current.attr('id')).addClass('selected');
+            console.log('.manual-image-'+$current.attr('id'));
+        },
+        offset : '40%'
     });
+
+
+    // MANUAL SCROLL TO
+    $('a').click( function(event) {
+        $.scrollTo(
+            $(this).attr("href"),
+            {
+                duration: 700,
+                offset: { 'left':0, 'top':-80 }
+            }
+        );
+    });
+
+
+    // MANUAL NAV SCROLL
+    var scrolled = 0;
+    $(".arrow-up").on("click", function() {
+        scrolled = scrolled-300;
+        $(".nav-manual ul").animate({"scrollTop": scrolled}, 300);
+    });
+    $(".arrow-down").on("click", function() {
+        scrolled=scrolled+300;
+        $(".nav-manual ul").animate({"scrollTop": scrolled}, 300);
+    });
+
+
 
 });

@@ -10,12 +10,12 @@
 ?>
 
 <nav id="nav-manual" class="show-for-large-up nav-manual">
-    <a class="arrow-up" href="#">up</a>
+    <a class="arrow-up">up</a>
 
     <ul class="no-bullet">
         <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
             <? $letter = strtolower(get_field('letter')); ?>
-            <a href="#<?=$letter;?>">
+            <a href="#<?=$letter;?>" class="manual-id-<?=$letter;?>">
                 <li>
                     <span class="letter uppercase"><?if (strlen($letter) < 2){echo $letter;};?></span>
 
@@ -26,5 +26,5 @@
         <?php endwhile; endif; wp_reset_postdata(); ?>
     </ul>
 
-    <a class="arrow-down" href="#">down</a>
+    <a class="arrow-down">down</a>
 </nav>

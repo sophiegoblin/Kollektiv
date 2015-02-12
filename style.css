@@ -8,7 +8,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: responsive-layout, white, 
 */
-/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-11 12:24:05 PM */
+/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-12 2:58:06 PM */
 
 @charset "UTF-8";
 @font-face {
@@ -1832,7 +1832,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   line-height: 0; }
 
 h1 {
-  font-size: 2.125rem; }
+  font-size: 2.375rem; }
 
 h2 {
   font-size: 1.6875rem; }
@@ -1992,7 +1992,7 @@ blockquote, blockquote p {
     line-height: 1.4; }
 
   h1 {
-    font-size: 2.75rem; }
+    font-size: 3rem; }
 
   h2 {
     font-size: 2.3125rem; }
@@ -2536,17 +2536,12 @@ article {
     margin-bottom: 1.875rem; } }
 
 html, body, .container, .content-wrap {
-  overflow: hidden;
   width: 100%;
   height: 100%; }
 
-.content-wrap {
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
-
 /* Menu */
 .main-menu-wrap {
-  position: absolute;
+  position: fixed;
   z-index: 30;
   width: 250px;
   height: 100%;
@@ -2754,6 +2749,10 @@ html, body, .container, .content-wrap {
   height: 100%;
   font-size: 0.8em;
   margin-bottom: 0; }
+.nav-manual ul a {
+  color: #000; }
+.nav-manual ul a.selected {
+  color: #ebdd32; }
 .nav-manual ul li {
   padding: 0.5em 0; }
 .nav-manual ul li .letter {
@@ -2846,7 +2845,7 @@ html, body, .container, .content-wrap {
   margin-left: -10px; }
 
 .search-container {
-  position: absolute;
+  position: fixed;
   top: 1em;
   left: 1em;
   width: 216px;
@@ -2901,7 +2900,11 @@ html, body, .container, .content-wrap {
   left: 5%;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+          transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease; }
+.manual-image.selected {
+  opacity: 1; }
 
 /**
  * Featherlight – ultra slim jQuery lightbox
