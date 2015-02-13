@@ -1,6 +1,5 @@
-/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-12 2:58:06 PM */
+/*! Kollektiv-Legacy 0.0.1 styles.css 2015-02-13 5:51:29 PM */
 
-@charset "UTF-8";
 @font-face {
   font-family: 'Futura Std Medium';
   src: url("../fonts/FuturaStd-Medium.eot");
@@ -2388,7 +2387,9 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
 * {
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent; }
 
 /*============================================
       HTML BODY RESET
@@ -2406,7 +2407,11 @@ html, body {
     padding: 0 0.9375rem; } }
 .row.page {
   max-width: 38rem;
+  margin: 80px auto; }
+.row.content {
   margin-top: 80px; }
+.row.content .page {
+  margin: 0 auto; }
 
 @media only screen and (min-width: 381px) and (max-width: 40.063em) {
   .small-medium-6 {
@@ -2473,6 +2478,12 @@ article {
 /*============================================
                 COLOUR STUFF
  ============================================*/
+::selection {
+  background: #f0e560; }
+
+::-moz-selection {
+  background: #f0e560; }
+
 .background-color {
   background: #ebdd32; }
 
@@ -2494,27 +2505,7 @@ article {
 /*============================================
                 CONTAINERS
  ============================================*/
-.picture-interview {
-  height: 100%;
-  width: 100%; }
-.picture-interview .image-wrapper {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 100px; }
-.picture-interview .image-wrapper .image {
-  height: 100%;
-  width: 100%;
-  border: solid red; }
-.picture-interview .image-wrapper .image img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  border: solid; }
-.picture-interview .image-wrapper .label {
-  max-width: 800px;
-  margin: auto; }
-
-.image:hover .label, .image:active .label {
+.page .image:hover .label, .page .image:active .label {
   background: #ebdd32;
   color: #000; }
 
@@ -2529,6 +2520,20 @@ article {
   .label {
     margin-bottom: 1.875rem; } }
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease; }
+.overlay.show {
+  opacity: 0.9;
+  z-index: 100;
+  transition: opacity 1.6s ease; }
+
 html, body, .container, .content-wrap {
   width: 100%;
   height: 100%; }
@@ -2536,6 +2541,7 @@ html, body, .container, .content-wrap {
 /* Menu */
 .main-menu-wrap {
   position: fixed;
+  top: 0;
   z-index: 30;
   width: 250px;
   height: 100%;
@@ -2553,6 +2559,9 @@ html, body, .container, .content-wrap {
   color: #000; }
 .main-menu-wrap a:hover, .main-menu-wrap a:focus {
   color: #fff; }
+
+.main-menu {
+  overflow-y: scroll; }
 
 .main-menu, .icon-list {
   height: 100%; }
@@ -2581,6 +2590,7 @@ html, body, .container, .content-wrap {
 .hamburglar {
   transform: scale(0.8);
   position: fixed;
+  top: 0;
   display: block;
   width: 318px;
   height: 68px;
@@ -2623,6 +2633,8 @@ html, body, .container, .content-wrap {
   height: 4px;
   width: 36px;
   background: #000; }
+.home .burger-bun-top, .home .burger-bun-bot, .home .burger-filling {
+  background: #fff; }
 
 .burger-bun-top {
   top: 0;
@@ -2861,93 +2873,84 @@ html, body, .container, .content-wrap {
   margin: 0 0 6em; }
 
 .manual-image {
-  position: fixed;
   left: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
+  bottom: 45%;
   transition: opacity 0.4s ease; }
+@media only screen and (min-width: 64.063em) {
+  .manual-image {
+    position: fixed;
+    opacity: 0; } }
 .manual-image.selected {
   opacity: 1; }
 
-/**
- * Featherlight – ultra slim jQuery lightbox
- * Version 1.0.3 - http://noelboss.github.io/featherlight/
- *
- * Copyright 2014, Noël Raoul Bossart (http://www.noelboss.com)
- * MIT Licensed.
-**/
-@media all {
-  .featherlight {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    text-align: center;
-    white-space: nowrap;
-    cursor: pointer;
-    background: #333; }
+.picture-interview {
+  height: 100%;
+  width: 100%; }
+.picture-interview h1 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  font-size: 1.375rem;
+  padding-top: 16px; }
+@media only screen and (min-width: 40.063em) {
+  .picture-interview h1 {
+    font-size: 2.375rem;
+    padding-top: 0; } }
+.picture-interview .slide {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: #ddd; }
+.picture-interview .slide .image {
+  height: 100%;
+  width: 100%; }
+.picture-interview .slide .image img {
+  max-height: 80%;
+  max-width: 100%;
+  width: auto;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }
+.picture-interview .slide .label {
+  margin: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%; }
 
-  .featherlight:last-of-type {
-    background: rgba(0, 0, 0, 0.8); }
+.trigger-scroll {
+  position: fixed;
+  bottom: 5em;
+  right: 5em;
+  color: black; }
+.trigger-scroll.go-to-top {
+  transform: rotate(180deg); }
 
-  .featherlight:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle; }
+.video-placeholder {
+  display: block; }
 
-  .featherlight .featherlight-content {
-    position: relative;
-    text-align: left;
-    vertical-align: middle;
-    display: inline-block;
-    padding: 25px 25px 0;
-    border-bottom: 25px solid transparent;
-    width: 100%;
-    max-width: 38rem;
-    margin-left: 5%;
-    margin-right: 5%;
-    max-height: 95%;
-    background: #fff;
-    cursor: auto;
-    white-space: normal; }
+.video-container {
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  max-width: 600px;
+  height: 70%;
+  display: none;
+  opacity: 0;
+  z-index: 101;
+  transition: opacity 0.3s ease; }
+.video-container.show {
+  opacity: 1;
+  display: block;
+  transition: opacity 1.6s ease; }
 
-  .featherlight .featherlight-inner {
-    display: block; }
-
-  .featherlight .featherlight-close-icon {
-    position: absolute;
-    z-index: 9999;
-    top: -1.3em;
-    right: -1.3em;
-    line-height: 50px;
-    width: 50px;
-    cursor: pointer;
-    text-align: center;
-    color: #FFF;
-    font-size: 2em; }
-
-  .featherlight .featherlight-image {
-    /* styling */
-    width: 100%; }
-
-  .featherlight-iframe .featherlight-content {
-    border-bottom: 0;
-    padding: 0; }
-
-  .featherlight iframe {
-    border: none; }
-
-  .flex-video {
-    margin-bottom: 0; } }
-/* handling phones and small screens */
-@media only screen and (max-width: 1024px) {
-  .featherlight .featherlight-content {
-    max-height: 98%; } }
 .entries-sidebar {
   position: fixed;
   top: 0;
@@ -2963,30 +2966,31 @@ html, body, .container, .content-wrap {
   display: none; }
 .entries-sidebar ul {
   margin: 0;
-  list-style-type: none; }
+  list-style-type: none;
+  font-size: 0.8em; }
 .open .entries-sidebar ul, .open .entries-sidebar ul li {
   transform: translate3d(0, 0, 0);
   transition: transform 0.4s;
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
 .entries-sidebar ul li {
-  border-top: 1px solid rgba(165, 164, 157, 0.5); }
-.entries-sidebar ul li:last-of-type {
-  border-bottom: 1px solid rgba(165, 164, 157, 0.5); }
-.entries-sidebar ul li {
+  border-top: 1px solid rgba(165, 164, 157, 0.5);
   display: block;
   padding: 0.8em;
-  font-weight: 700;
-  border-top: rgba(165, 164, 157, 0.5);
-  color: #fff; }
+  border-top: rgba(165, 164, 157, 0.5); }
+.entries-sidebar ul li:last-of-type {
+  border-bottom: 1px solid rgba(165, 164, 157, 0.5); }
 .entries-sidebar ul li a {
-  color: #fff; }
+  color: #000; }
 
 .entries-sidebar-button {
   display: block;
   position: fixed;
   right: 0;
   bottom: 50px;
-  padding: 20px; }
+  padding: 20px;
+  color: #000; }
+.entries-sidebar-button:hover, .entries-sidebar-button:focus {
+  color: #000; }
 
 .entries-sidebar, .entries-sidebar-button {
   transform: translate3d(250px, 0, 0);

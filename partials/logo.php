@@ -1,4 +1,4 @@
-<div class="logo">
+<div class="logo show-for-medium-up">
     <a href="<?php echo get_option('home');?>">
         <div class="logo_k letter"></div>
         <div class="logo_o letter spin"></div>

@@ -17,6 +17,10 @@
 
         <? $letter = strtolower(get_field('letter')); ?>
 
+        <?if (strlen($letter) < 2):?>
+            <img id="manual-image-<?=$letter;?>" class="manual-image manual-image-<?=$letter;?> manual-id-<?=$letter;?>" src="<?= get_bloginfo('template_directory');?>/assets/images/manual-blocks/<?=$letter;?>.png" />
+        <?endif;?>
+
         <a name="<?=$letter;?>" id="<?=$letter;?>"></a>
         <section id="manual-id-<?=$letter;?>" class="background-color manual-item">
             <?if (strlen($letter) < 2):?>
@@ -25,8 +29,6 @@
             <h3 class="uppercase"><? the_field('title'); ?></h3>
             <? the_content(); ?>
         </section>
-
-        <img id="manual-image-<?=$letter;?>" class="manual-image manual-image-<?=$letter;?> manual-id-<?=$letter;?>" src="<?= get_bloginfo('template_directory');?>/assets/images/manual-blocks/<?=$letter;?>.png" />
 
     <?php endwhile; endif; wp_reset_postdata(); ?>
 

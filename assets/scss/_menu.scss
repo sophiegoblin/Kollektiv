@@ -1,8 +1,7 @@
 $menu-width: 250px;
 $menu-slide-time: 0.4s;
 $color-menu-background: $color-yellow;
-$color-nav-manual-background: $color-white;
-$color-icon: $color-dark;
+$color-nav-manual-background: $color-white;  ;
 $icon-animation-speed: 0.3s;	// animation speed
 $icon-scale: 0.8;			  // icon scale 68/68 default
 
@@ -19,6 +18,7 @@ body,
 /* Menu */
 .main-menu-wrap {
     position: fixed;
+    top: 0;
     z-index: $z-index-menu;
     width: $menu-width;
     height: 100%;
@@ -41,6 +41,10 @@ body,
             color: $color-hover-light;
         }
     }
+}
+
+.main-menu {
+    overflow-y: scroll;
 }
 
 .main-menu,
@@ -89,6 +93,7 @@ body,
 .hamburglar {
     transform: scale($icon-scale);
     position: fixed;
+    top: 0;
     display: block;
     width: $menu-width + 68px;
     height: 68px;
@@ -141,7 +146,11 @@ body,
     display: block;
     height: 4px;
     width: 36px;
-    background: $color-icon;
+    background: $color-dark;
+
+    .home & {
+        background: $color-light;
+    }
 }
 
 .burger-bun-top {

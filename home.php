@@ -15,16 +15,15 @@
             <? include 'partials/post-thumbnail.php';?>
         </article>
 
-
-        <? include 'partials/similar-posts.php';?>
-
-
         <?php endwhile; else : ?>
 
         <p><?php _e( 'Sorry, no pages found.', 'kollektiv-legacy-theme' ); ?></p>
 
         <?php endif; ?>
 
+        <? include 'partials/similar-posts.php';?>
+
+        <? get_sidebar(); ?>
     </div>
 
 </section>

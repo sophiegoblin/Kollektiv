@@ -14,7 +14,11 @@
 
           <? include 'partials/post-meta.php';?>
 
-          <p><? the_field('excerpt'); ?></p>
+          <? if (strlen(get_field('excerpt')) > 1): ?>
+            <p><? the_field('excerpt'); ?></p>
+          <? else: ?>
+            <? the_excerpt(); ?>
+          <? endif; ?>
 
           <? include 'partials/post-thumbnail.php';?>
 

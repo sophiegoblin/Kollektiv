@@ -1,6 +1,6 @@
 <!-- Secondary Column -->
 
-<a id="entries-sidebar-button" class="entries-sidebar-button background-color text-dark" href="#">ENTRIES</a>
+<a id="entries-sidebar-button" class="entries-sidebar-button background-color" href="#">ENTRIES</a>
 <div id="entries-sidebar" class="entries-sidebar background-color">
 
 	<?php if( !dynamic_sidebar( 'blog' ) ): ?>

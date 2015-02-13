@@ -14,11 +14,11 @@ if (function_exists('add_image_size')) {
 }
 
 
-//function femur_excerpt_length( $length ) {
-//	return 16;
-//}
-//add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, override with my length function. And do it last!
-//
+function femur_excerpt_length( $length ) {
+	return 16;
+}
+add_filter( 'excerpt_length', 'femur_excerpt_length', 999); // Wordpress, when you're setting the excerpt length, override with my length function. And do it last!
+
 
 
 function register_theme_menus() {

@@ -5,7 +5,8 @@
 ?>
 <?php get_header(); ?>
 
-<section class="leader background-light text-center">
+<section class="row content">
+    <div class="text-center">
 
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -13,8 +14,8 @@
     
         <?php endwhile; endif; ?>
 
+    </div>
+    <?php get_template_part('content', 'videos'); ?>
 </section>
-
-<?php get_template_part('content', 'videos'); ?>
 
 <?php get_footer(); ?>

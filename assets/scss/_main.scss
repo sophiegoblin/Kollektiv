@@ -23,7 +23,11 @@ $z-index-logo: 25;
 $z-index-leader: 20;
 
 
-* { -webkit-font-smoothing: antialiased; }
+* {
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    tap-highlight-color: rgba(0,0,0,0);
+}
 
 /*============================================
       HTML BODY RESET
@@ -46,7 +50,13 @@ $row-width-full: 70rem;
     }
     &.page {
         max-width: $row-width-page;
+        margin: 80px auto;
+    }
+    &.content {
         margin-top: 80px;
+        .page {
+            margin: 0 auto;
+        }
     }
 }
 
@@ -134,6 +144,12 @@ article {
 /*============================================
                 COLOUR STUFF
  ============================================*/
+::selection {
+    background: lighten($color-yellow, 10%);
+}
+::-moz-selection {
+    background: lighten($color-yellow, 10%);
+}
 
 .background-color  {
     background: $color-theme;
@@ -159,35 +175,8 @@ article {
 /*============================================
                 CONTAINERS
  ============================================*/
-.picture-interview {
-    height: 100%;
-    width: 100%;
-    .image-wrapper {
-        height:100%;
-        width: 100%;
-        margin-bottom: 100px;
-        .image {
-            height: 100%;
-            width: 100%;
-            border: solid red; // FOR TESTING
 
-            img {
-                max-height: 100%;
-                max-width: 100%;
-                width: auto;
-
-                border: solid; // FOR TESTING
-            }
-        }
-
-        .label {
-            max-width: 800px;
-            margin: auto;
-        }
-    }
-}
-
-.image {
+.page .image {
     &:hover .label, &:active .label {
         background: $color-theme;
         color: $color-dark;
@@ -209,20 +198,18 @@ article {
     }
 }
 
-//[class^=overlay]{
-//    position: fixed;
-//    width:100%;
-//    height: 100%;
-//    top: 0;
-//    left: 0;
-//    right: 0;
-//    bottom: 0;
-//    margin: auto;
-//    z-index: $z-index-overlay;
-//    opacity: 0.75;
-//}
-//
-//.overlay-light{
-//    background: $color-light;
-//}
-
+.overlay{
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.show {
+        opacity: 0.9;
+        z-index: $z-index-overlay;
+        transition: opacity 1.6s ease;
+    }
+}

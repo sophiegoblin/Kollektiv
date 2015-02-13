@@ -19,6 +19,7 @@
     ul {
         margin: 0;
         list-style-type: none;
+        font-size: 0.8em;
 
         .open &,
         .open & li {
@@ -29,22 +30,21 @@
 
         li {
             $color-line: rgba(165, 164, 157, 0.5);
-
             border-top: 1px solid $color-line;
+            display: block;
+            padding: 0.8em;
+            border-top: rgba(165, 164, 157, 0.5);
+
             &:last-of-type{
                 border-bottom: 1px solid $color-line;
+            }
+            a {
+                color: $color-dark;
             }
         }
 
         li {
-            display: block;
-            padding: 0.8em;
-            font-weight: 700;
-            border-top: rgba(165, 164, 157, 0.5);
-            color: $color-light;
-            a {
-                color: $color-light;
-            }
+
         }
     }
 }
@@ -56,6 +56,10 @@
     right: 0;
     bottom: 50px;
     padding: 20px;
+    color: $color-dark;
+    &:hover, &:focus {
+        color: $color-dark;
+    }
 }
 
 .entries-sidebar, .entries-sidebar-button{

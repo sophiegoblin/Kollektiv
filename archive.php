@@ -25,6 +25,7 @@
 
       <? endif; ?>
 
+      <? get_sidebar(); ?>
   </div>
 
 </section>

@@ -9,7 +9,7 @@
     $query = new WP_Query( $args );
 ?>
 
-<section class="row content">
+<section class="row">
 
     <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
 
