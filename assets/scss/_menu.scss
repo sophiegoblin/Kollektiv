@@ -37,7 +37,8 @@ body,
 
     a {
         color: $color-menu-titles;
-        &:hover, &:focus {
+
+        @include hover {
             color: $color-hover-light;
         }
     }

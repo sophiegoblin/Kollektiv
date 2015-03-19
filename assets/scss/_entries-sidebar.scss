@@ -57,7 +57,7 @@
     bottom: 50px;
     padding: 20px;
     color: $color-dark;
-    &:hover, &:focus {
+    @include hover {
         color: $color-dark;
     }
 }

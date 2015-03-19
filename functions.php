@@ -97,4 +97,32 @@ add_action('get_header', 'my_filter_head');
 //THIS HIDES THE ADMIN BAR COMPLETELY
 add_filter('show_admin_bar', '__return_false');
 
+
+/**
+* Add a widget to the dashboard.
+*
+* This function is hooked into the 'wp_dashboard_setup' action below.
+*/
+function femur_add_dashboard_widgets() {
+
+wp_add_dashboard_widget(
+'femur_dashboard_widget',         // Widget slug.
+'WELCOME TO YOUR SITE',         // Title.
+'femur_dashboard_widget_function' // Display function.
+);
+}
+add_action( 'wp_dashboard_setup', 'femur_add_dashboard_widgets' );
+
+/**
+* Create the function to output the contents of our Dashboard Widget.
+*/
+function femur_dashboard_widget_function() {
+
+// Display whatever it is you want to show.
+echo "Hello Kollektiv, You're looking very beautiful today";
+}
+
+
+
+
 ?>

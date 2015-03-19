@@ -19,6 +19,19 @@
               ?>
         </div>
     </nav>
+
+    <div class="social-media">
+        <a href="https://www.facebook.com/kollektivgallery">
+            <img src="<?=get_template_directory_uri(); ?>/assets/images/icons/facebook.svg" alt="<? bloginfo('name'); ?> - Facebook"/>
+        </a>
+        <a href="http://www.twitter.com/kollektiv_">
+            <img src="<?=get_template_directory_uri(); ?>/assets/images/icons/twitter.svg" alt="<? bloginfo('name'); ?> - Twitter"/>
+        </a>
+        <a href="http://www.youtube.com/kollektivgallery">
+            <img src="<?=get_template_directory_uri(); ?>/assets/images/icons/youtube.svg" alt="<? bloginfo('name'); ?> - Youtube"/>
+        </a>
+    </div>
+
 </div>
 
 <div id="main-menu-button" class="hamburglar is-closed">

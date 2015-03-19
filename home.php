@@ -12,7 +12,7 @@
 
             <?php include 'partials/post-meta.php';?>
 
-            <? include 'partials/post-thumbnail.php';?>
+            <? include 'partials/read-story-circle.php';?>
         </article>
 
         <?php endwhile; else : ?>

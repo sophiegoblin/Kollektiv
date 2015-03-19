@@ -116,6 +116,34 @@ article {
     background: $color-grey;
 }
 
+.read-story-circle-wrap {
+    padding: 65px 0;
+    text-align: center;
+
+    .read-story-circle {
+        border: 2px solid $color-dark;
+        color: $color-dark;
+        width: 100px;
+        height: 100px;
+        display: block;
+        line-height: 96px;
+        margin: 0 auto;
+
+        @include hover {
+            background: $color-dark;
+            color: $color-light
+        }
+    }
+}
+
+.social-media {
+    position: absolute;
+    bottom:1rem;
+    left: 1rem;
+    img {
+        margin: 10px;
+    }
+}
 /*============================================
                 HELPER CLASSES
  ============================================*/
@@ -177,9 +205,11 @@ article {
  ============================================*/
 
 .page .image {
-    &:hover .label, &:active .label {
-        background: $color-theme;
-        color: $color-dark;
+    @include hover {
+        .label {
+            background: $color-theme;
+            color: $color-dark;
+        }
     }
 }
 

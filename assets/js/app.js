@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
     };
 
     $('#main-menu-button').click(function() {
-       toggleMenu();
+        toggleMenu();
     });
 
     // ENTRIES MENU
@@ -111,58 +111,58 @@ jQuery(document).ready(function($) {
 
 
 
-        $scrollTrigger.on('click', function(e) {
+    $scrollTrigger.on('click', function(e) {
 
-            // only scroll down if next element is a scrollSection
-            if ($('.selected').next().hasClass('slide')){
-                $.scrollTo(
-                    $('.selected').next(),
-                    {
-                        duration: 700
-                    }
-                );
-            } else {
-                // last element so scroll to the first
-                $.scrollTo(
-                    $scrollSection[0],
-                    {
-                        duration: 700
-                    }
-                );
-            }
-            e.preventDefault();
-        });
-
-
+        // only scroll down if next element is a scrollSection
+        if ($('.selected').next().hasClass('slide')){
+            $.scrollTo(
+                $('.selected').next(),
+                {
+                    duration: 700
+                }
+            );
+        } else {
+            // last element so scroll to the first
+            $.scrollTo(
+                $scrollSection[0],
+                {
+                    duration: 700
+                }
+            );
+        }
+        e.preventDefault();
+    });
 
 
-        //
-        //$scrollTrigger.on( 'click', function() {
-        //    $(this).removeClass('go-to-top');
-        //
-        //    // If at last section, scroll back to top on next click:
-        //    if (nextSection >= $scrollSection.length) {
-        //        $('html, body').animate({ scrollTop: 0 }, 1000);
-        //        nextSection = 0;
-        //        return;
-        //    }
-        //
-        //    // If already scrolled down
-        //    // to find next section position so you don't go backwards:
-        //    while ( $('body').scrollTop() > $($scrollSection[nextSection]).offset().top ) {
-        //        nextSection++;
-        //    }
-        //
-        //    // If next section is the last, add class to rotate arrow:
-        //    if (nextSection === ($scrollSection.length - 1)) {
-        //        $(this).addClass('go-to-top');
-        //    }
-        //
-        //    // Move to next section and increment counter check:
-        //    $( 'html, body' ).animate({ scrollTop: $($scrollSection[nextSection]).offset().top }, 1000);
-        //    nextSection++;
-        //});
-        // end homepage scroll to section
+
+
+    //
+    //$scrollTrigger.on( 'click', function() {
+    //    $(this).removeClass('go-to-top');
+    //
+    //    // If at last section, scroll back to top on next click:
+    //    if (nextSection >= $scrollSection.length) {
+    //        $('html, body').animate({ scrollTop: 0 }, 1000);
+    //        nextSection = 0;
+    //        return;
+    //    }
+    //
+    //    // If already scrolled down
+    //    // to find next section position so you don't go backwards:
+    //    while ( $('body').scrollTop() > $($scrollSection[nextSection]).offset().top ) {
+    //        nextSection++;
+    //    }
+    //
+    //    // If next section is the last, add class to rotate arrow:
+    //    if (nextSection === ($scrollSection.length - 1)) {
+    //        $(this).addClass('go-to-top');
+    //    }
+    //
+    //    // Move to next section and increment counter check:
+    //    $( 'html, body' ).animate({ scrollTop: $($scrollSection[nextSection]).offset().top }, 1000);
+    //    nextSection++;
+    //});
+    // end homepage scroll to section
     //}else{
     //    console.log('page-scroller class was not found in body tag');
     //}//end if else

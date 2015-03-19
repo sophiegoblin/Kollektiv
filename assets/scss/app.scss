@@ -18,6 +18,25 @@ $body-font-family: Arial, "Futura", Futura, sans-serif;
 $header-font-family: 'Futura Std Medium', "Futura", Futura, Arial, sans-serif;
 $h1-font-size: 3rem;
 
+/***** MIXINS *****/
+
+// Normal state
+@mixin normal {
+    &:link,
+    &:visited {
+        @content;
+    }
+}
+
+// Hover state
+@mixin hover {
+    &:hover,
+    &:focus,
+    &:active {
+        @content;
+    }
+}
+
 // Or selectively include components
 @import
 //   "foundation/components/accordion",
