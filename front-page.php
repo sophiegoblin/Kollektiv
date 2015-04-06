@@ -3,6 +3,53 @@
 
 <section class="row">
 
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            // jQuery Validation
+            $("#signup").validate({
+                // if valid, post data via AJAX
+                submitHandler: function(form) {
+                    $.post("http://localhost:8888/KOLLEKTIV-V2/wp-content/themes/kollektiv-legacy-theme/subscribe.php", {
+                        email: $("#email").val(),
+                        kollektivSchool: $("kollektivSchool").val()
+                        // THIS ISN'T WORKING PROPERLY
+                        // IT WORKS WHEN WE DONT USE AJAX
+                    }, function(data) {
+                        $('#response').html(data);
+                    });
+                },
+                // all fields are required
+                rules: {
+                    kollektivSchool: {
+                        required: false
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div id="wrapper">
+        <form id="signup" class="formee" action="<? echo get_template_directory_uri(); ?>/subscribe.php" method="post">
+            <div>
+                <label for="email">Email Address *</label>
+                <input name="email" id="email" type="text" placeholder="Email address" />
+            </div>
+            <div>
+                <label for="kollektivSchool">Kollektiv School?</label>
+                <input type="checkbox" name="kollektivSchool" id="kollektivSchool" value="Yes" />
+            </div>
+            <div>
+                <input class="right inputnew" type="submit" title="Send" value="Send" />
+            </div>
+        </form>
+        <div id="response"></div>
+    </div>
+
     <div class="center circle background-light text-center subscribe-container">
 
         <h4>SUBSCRIBE</h4>

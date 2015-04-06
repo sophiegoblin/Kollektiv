@@ -69,6 +69,9 @@ function femur_theme_js() {
 		'', '', false ); // False = Place in header
 	wp_enqueue_script( 'fastclick_js', get_template_directory_uri() . '/assets/bower_components/fastclick/lib/fastclick.js', '', '', true ); // True = Place in footer
 
+	wp_enqueue_script( 'jquery_validate', get_template_directory_uri() . '/assets/js/vendor/jquery.validate.min.js',
+		array('jquery'), '', true ); // True = Place in footer
+
 //	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/assets/js/vendor/foundation.min.js',
 //		array('jquery'), '', true ); // Dependant on jquery. True = Place in footer
 
@@ -97,7 +100,6 @@ add_action('get_header', 'my_filter_head');
 //THIS HIDES THE ADMIN BAR COMPLETELY
 add_filter('show_admin_bar', '__return_false');
 
-
 /**
 * Add a widget to the dashboard.
 *
@@ -112,7 +114,6 @@ wp_add_dashboard_widget(
 );
 }
 add_action( 'wp_dashboard_setup', 'femur_add_dashboard_widgets' );
-
 /**
 * Create the function to output the contents of our Dashboard Widget.
 */
