@@ -7,7 +7,10 @@ $merge_vars = array();
 $kollektiv_school_list = 'f179ab75d4';
 $kollektiv_web_list = '746455a945';
 
-if(isset($_POST['kollektivSchool']) && $_POST['kollektivSchool'] == 'Yes') {
+$isKollektivSchool = filter_var ($_POST['kollektivSchool'], FILTER_VALIDATE_BOOLEAN);
+//THIS IS NOT COMING THROUGH FOR SOME REASON
+
+if ($isKollektivSchool == true) {
 	$mc_list = $kollektiv_school_list;
 } else {
 	$mc_list = $kollektiv_web_list;
@@ -15,24 +18,23 @@ if(isset($_POST['kollektivSchool']) && $_POST['kollektivSchool'] == 'Yes') {
 
 // Submit subscriber data to MailChimp
 // For parameters doc, refer to: http://apidocs.mailchimp.com/api/1.3/listsubscribe.func.php
-$retval = $api->listSubscribe($mc_list, $_POST["email"], $merge_vars, 'html', true, true );
+$retval = $api->listSubscribe($mc_list, $_POST["email"], $merge_vars, 'html', true, true ); //change one of these to false to stop double opt in
 	
 if ($api->errorCode){
-	echo "<h4>". $api->errorCode . "</h4>";
+	echo "<h4>". //TODO: put error message here
+	 $api->errorCode . "</h4>";
 } else {
 
-	if ($mc_list === $kollektiv_school_list){ ?>
+	if ($isKollektivSchool === true) { ?>
 
-		<p>Thank you, School mailing list.</p>
-
-	<? } elseif ($mc_list === $kollektiv_web_list){ ?>
-
-		<h4>Thank you Kollektiv mailing list.</h4>
+		<p>Thank you, School mailing list. <? echo $isKollektivSchool; ?></p>
 
 	<? } else { ?>
 
-		<h4>Thank you, you have been added to our mailing list.</h4>
+		<p>Thank you Kollektiv mailing list. <? echo $isKollektivSchool; ?></p>
+
+
+
 	<? }
 }
-
 ?>

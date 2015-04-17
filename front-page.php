@@ -12,18 +12,16 @@
                 submitHandler: function(form) {
                     $.post("http://localhost:8888/KOLLEKTIV-V2/wp-content/themes/kollektiv-legacy-theme/subscribe.php", {
                         email: $("#email").val(),
-                        kollektivSchool: $("kollektivSchool").val()
+                        kollektivSchool: $("#kollektivSchool").prop('checked')
                         // THIS ISN'T WORKING PROPERLY
                         // IT WORKS WHEN WE DONT USE AJAX
                     }, function(data) {
+                        //SUCCESS
                         $('#response').html(data);
                     });
                 },
                 // all fields are required
                 rules: {
-                    kollektivSchool: {
-                        required: false
-                    },
                     email: {
                         required: true,
                         email: true
@@ -41,7 +39,7 @@
             </div>
             <div>
                 <label for="kollektivSchool">Kollektiv School?</label>
-                <input type="checkbox" name="kollektivSchool" id="kollektivSchool" value="Yes" />
+                <input type="checkbox" name="kollektivSchool" id="kollektivSchool" value="Yes" checked />
             </div>
             <div>
                 <input class="right inputnew" type="submit" title="Send" value="Send" />
